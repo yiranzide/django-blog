@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加博客</title>
+</head>
+<body>
+        <form action="{{request.path}}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="blogid" value="{{ id }}">
+            标题：{{blogform.title}}<br>
+            内容：{{blogform.content}}<br>
+            配图：{{blogform.pic}}<br>
+            <input type="submit" value="修改">
+
+        </form>
+         <a href="{% url 'newblog:newbloglist' %}">返回文章列表</a>
+
+
+
+</body>
+</html>

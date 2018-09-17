@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示博客列表</title>
+</head>
+<body>
+        <form action="{% url 'newblog:newsearch' %}" method="get">
+            <input type="text" name="keyword" value="{{ keyword }}">
+            <input type="submit" value="查询">
+
+        </form>
+        <a href="{% url 'newblog:newaddblog' %}">写博客</a>
+
+
+    <h1>文章列表：</h1><br>
+    {% for blog in blogs %}
+        <a href="{% url 'newblog:newdetailblog' %}?blogid={{blog.id}}">{{blog.title}}</a>
+        <a href="{% url 'newblog:neweditblog' %}?blogid={{blog.id}}">修改</a>|
+        <a href="{% url 'newblog:newdelblog' %}?blogid={{blog.id}}">删除</a>|
+        <a href="{% url 'newblog:newcommentblog' %}?blogid={{blog.id}}">评论({{blog.count}})</a><br>
+    {% endfor %}
+    <!--这里'blogapp:detailblog'是因为setting中给blogapp加了命名空间，为了区别不同的代码功能，也看不加-->
+
+        <a href="{% url 'newblog:newbloglist' %}">返回文章列表</a>
+
+        <a href="{% url 'newblog:newlogout' %}">用户注销</a>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示博客列表</title>
+</head>
+<body>
+
+    文章列表：<br>
+    {% for blog in blogs %}
+        <a href="{% url 'newblog:newdetailblog' %}?blogid={{blog.id}}">{{blog.title}}</a>
+        <a href="{% url 'newblog:neweditblog' %}?blogid={{blog.id}}">修改</a>|
+        <a href="{% url 'newblog:newdelblog' %}?blogid={{blog.id}}">删除</a><br>
+    {% endfor %}
+    <!--这里'blogapp:detailblog'是因为setting中给blogapp加了命名空间，为了区别不同的代码功能，也看不加-->
+
+
+
+</body>
+</html>

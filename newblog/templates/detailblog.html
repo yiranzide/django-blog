@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示每篇博客的内容</title>
+</head>
+<body>
+
+
+    文章标题：{{blog.title}}<br>
+    内   容：{{blog.content}}<br>
+    阅读数：{{blog.readcount}}<br>
+    <img src="{{blog.pic.url}}" width="300" height="300"><br>
+
+    评论列表：
+    <br>
+    {% for comment in l %}
+        <div>{{ comment.context }} by {{ comment.name }} </div>
+    {% endfor %}
+
+
+
+</body>
+</html>

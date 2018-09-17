@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        用户名：{{form.username}}{{error}}<br>
+        密  码：{{form.password}}<br>
+        确认密码：{{form.repassword}}<br>{{form.non_field_errors}}<br>
+
+        <input type="submit" value="注册">
+        <a href="{% url 'newblog:newbloglogin' %}">已有账号,去登录</a>
+    </form>
+</body>
+</html>

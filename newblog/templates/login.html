@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+    <form action="{{request.path}}" method="POST">
+        {% csrf_token %}
+
+        <a href="{% url 'newblog:newblogregister' %}">没有账号？去注册</a><br>
+
+
+        用户名：{{loginform.username}}<br>
+        密   码：{{loginform.password}}<br>{{error}}<br>
+
+        <input type="submit" value="登录">
+         <a href="{% url 'newblog:newbloglist' %}">博客列表</a>
+
+
+
+    </form>
+
+
+</body>
+</html>
